@@ -1,0 +1,9 @@
+---
+# vars/CentOS-webtatic.yml
+
+wtd_php_packages:
+  - php71w-common
+  - php71w-cli
+
+wtd_php_fpm_packages:
+  - php71w-fpm

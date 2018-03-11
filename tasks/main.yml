@@ -1,0 +1,17 @@
+---
+# tasks/main.yml
+
+- name: Include distribution specific settings
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Include PHP packages names
+  include_vars: "{{ ansible_distribution }}-{{ wtd_php_repository }}.yml"
+
+- name: Install PHP packages
+  package:
+    name: "{{ wtd_php_packages }}"
+    state: present
+
+- name: Configure PHP-FPM
+  include_tasks: php-fpm.yml
+  when: wtd_php_fpm_enable == true

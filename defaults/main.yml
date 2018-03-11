@@ -1,0 +1,15 @@
+---
+# defaults/main.yml for php
+
+wtd_php_fpm_enable: false
+
+wtd_php_fpm_user: "apache"
+wtd_php_fpm_group: "apache"
+wtd_php_fpm_listen: "127.0.0.1:9000"
+wtd_php_fpm_env_hostname: "$HOSTNAME"
+wtd_php_fpm_env_path: "/usr/local/bin:/usr/bin:/bin"
+wtd_php_fpm_env_tmp: "/tmp"
+wtd_php_fpm_env_tmpdir: "/tmp"
+wtd_php_fpm_env_temp: "/tmp"
+
+wtd_php_repository: "default"

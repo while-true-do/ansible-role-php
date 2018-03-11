@@ -1,0 +1,33 @@
+---
+# tasks/php-fpm.yml
+
+- name: Install PHP-FPM
+  package:
+    name: "{{ wtd_php_fpm_packages }}"
+    state: present
+
+- name: Configure /etc/php-fpm.d/www.conf
+  template:
+    src: www.conf.j2
+    dest: /etc/php-fpm.d/www.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart PHP-FPM
+
+- name: Create Directory /var/lib/php/session
+  file:
+    path: /var/lib/php/session
+    state: directory
+    owner: "{{ wtd_php_fpm_user }}"
+    group: "{{ wtd_php_fpm_group }}"
+    mode: 0750
+  notify:
+    - Restart PHP-FPM
+
+- name: Enable and Start PHP-FPM
+  service:
+    name: "{{ wtd_php_fpm_service }}"
+    state: started
+    enabled: yes

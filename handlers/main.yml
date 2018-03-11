@@ -1,0 +1,7 @@
+---
+# handlers/main.yml for php
+
+- name: Restart PHP-FPM
+  service:
+    name: "{{ wtd_php_fpm_service }}"
+    state: restarted

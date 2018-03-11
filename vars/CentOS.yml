@@ -1,0 +1,4 @@
+---
+# vars/CentOS.yml
+
+wtd_php_fpm_service: "php-fpm"

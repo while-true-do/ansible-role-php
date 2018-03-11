@@ -1,0 +1,21 @@
+dependencies:
+  - src: while-true-do.repo-webtatic
+    when: wtd_php_repository == "webtatic"
+
+galaxy_info:
+  author: while-true-do.org
+  description: A role that installs PHP on the target system.
+  company: while-true-do.org
+
+  github_branch: master
+  license: BSD
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: EL
+    versions:
+    - 7
+
+  galaxy_tags:
+    - php
