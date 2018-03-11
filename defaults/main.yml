@@ -1,5 +1,5 @@
 ---
-# defaults/main.yml for php
+# defaults/main.yml
 
 wtd_php_fpm_enable: false
 
