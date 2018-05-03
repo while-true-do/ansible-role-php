@@ -1,4 +1,15 @@
 ---
 # vars/CentOS.yml
 
-wtd_php_fpm_service: "php-fpm"
+__wtd_php_packages:
+  - php
+
+__wtd_php_fpm_packages:
+  - php-fpm
+
+__wtd_php_packages_webtatic:
+  - php71w-common
+  - php71w-cli
+
+__wtd_php_fpm_packages_webtatic:
+  - php71w-fpm

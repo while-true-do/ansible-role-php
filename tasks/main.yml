@@ -4,8 +4,15 @@
 - name: Include distribution specific settings
   include_vars: "{{ ansible_distribution }}.yml"
 
-- name: Include PHP packages names
-  include_vars: "{{ ansible_distribution }}-{{ wtd_php_repository }}.yml"
+- name: Define PHP packages default repository
+  set_fact:
+    wtd_php_packages: "{{ __wtd_php_packages | list }}"
+  when: wtd_php_packages is not defined and wtd_php_repository == "default"
+
+- name: Define PHP packages webtatic repository
+  set_fact:
+    wtd_php_packages: "{{ __wtd_php_packages_webtatic | list }}"
+  when: wtd_php_packages is not defined and wtd_php_repository == "webtatic"
 
 - name: Install PHP packages
   package:
