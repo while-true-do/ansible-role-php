@@ -1,0 +1,191 @@
+; Enable Zend OPcache extension module
+zend_extension=opcache.so
+
+; Determines if Zend OPCache is enabled
+opcache.enable={{ wtd_php_opcache_enable }}
+
+; Determines if Zend OPCache is enabled for the CLI version of PHP
+{% if wtd_php_opcache_enable_cli is defined %}
+opcache.enable_cli={{ wtd_php_opcache_enable_cli }}
+{% else %}
+;opcache.enable_cli=0
+{% endif %}
+
+; The OPcache shared memory storage size.
+opcache.memory_consumption={{ wtd_php_opcache_memory_consumption }}
+
+; The amount of memory for interned strings in Mbytes.
+opcache.interned_strings_buffer={{ wtd_php_opcache_interned_strings_buffer }}
+
+; The maximum number of keys (scripts) in the OPcache hash table.
+; Only numbers between 200 and 100000 are allowed.
+opcache.max_accelerated_files={{ wtd_php_opcache_max_accelerated_files }}
+
+; The maximum percentage of "wasted" memory until a restart is scheduled.
+{% if wtd_php_opcache_max_wasted_percentage is defined %}
+opcache.max_wasted_percentage={{ wtd_php_opcache_max_wasted_percentage }}
+{% else %}
+;opcache.max_wasted_percentage=5
+{% endif %}
+
+; When this directive is enabled, the OPcache appends the current working
+; directory to the script key, thus eliminating possible collisions between
+; files with the same name (basename). Disabling the directive improves
+; performance, but may break existing applications.
+{% if wtd_php_opcache_use_cwd is defined %}
+opcache.use_cwd={{ wtd_php_opcache_use_cwd }}
+{% else %}
+;opcache.use_cwd=1
+{% endif %}
+
+; When disabled, you must reset the OPcache manually or restart the
+; webserver for changes to the filesystem to take effect.
+{% if wtd_php_opcache_validate_timestamps is defined %}
+opcache.validate_timestamps={{ wtd_php_opcache_validate_timestamps }}
+{% else %}
+;opcache.validate_timestamps=1
+{% endif %}
+
+; How often (in seconds) to check file timestamps for changes to the shared
+; memory storage allocation. ("1" means validate once per second, but only
+; once per request. "0" means always validate)
+{% if wtd_php_opcache_revalidate_freq is defined %}
+opcache.revalidate_freq={{ wtd_php_opcache_revalidate_freq }}
+{% else %}
+;opcache.revalidate_freq=2
+{% endif %}
+
+; Enables or disables file search in include_path optimization
+{% if wtd_php_opcache_revalidate_path is defined %}
+;opcache.revalidate_path={{ wtd_php_opcache_revalidate_path }}
+{% else %}
+;opcache.revalidate_path=0
+{% endif %}
+
+; If disabled, all PHPDoc comments are dropped from the code to reduce the
+; size of the optimized code.
+{% if wtd_php_opcache_save_comments is defined %}
+opcache.save_comments={{ wtd_php_opcache_save_comments }}
+{% else %}
+;opcache.save_comments=1
+{% endif %}
+
+; If disabled, PHPDoc comments are not loaded from SHM, so "Doc Comments"
+; may be always stored (save_comments=1), but not loaded by applications
+; that don't need them anyway.
+{% if wtd_php_opcache_load_comments is defined %}
+opcache.load_comments={{ wtd_php_opcache_load_comments }}
+{% else %}
+;opcache.load_comments=1
+{% endif %}
+
+; If enabled, a fast shutdown sequence is used for the accelerated code
+opcache.fast_shutdown={{ wtd_php_opcache_fast_shutdown }}
+
+; Allow file existence override (file_exists, etc.) performance feature.
+{% if wtd_php_opcache_enable_file_override is defined %}
+opcache.enable_file_override={{ wtd_php_opcache_enable_file_override }}
+{% else %}
+;opcache.enable_file_override=0
+{% endif %}
+
+; A bitmask, where each bit enables or disables the appropriate OPcache
+; passes
+{% if wtd_php_opcache_optimization_level is defined %}
+opcache.optimization_level={{ wtd_php_opcache_optimization_level }}
+{% else %}
+;opcache.optimization_level=0xffffffff
+{% endif %}
+
+{% if wtd_php_opcache_inherited_hack is defined %}
+opcache.inherited_hack={{ wtd_php_opcache_inherited_hack }}
+{% else %}
+;opcache.inherited_hack=1
+{% endif %}
+{% if wtd_php_opcache_dups_fix is defined %}
+opcache.dups_fix={{ wtd_php_opcache_dups_fix }}
+{% else %}
+;opcache.dups_fix=0
+{% endif %}
+
+; The location of the OPcache blacklist file (wildcards allowed).
+; Each OPcache blacklist file is a text file that holds the names of files
+; that should not be accelerated. The file format is to add each filename
+; to a new line. The filename may be a full path or just a file prefix
+; (i.e., /var/www/x  blacklists all the files and directories in /var/www
+; that start with 'x'). Line starting with a ; are ignored (comments).
+opcache.blacklist_filename={{ wtd_php_opcache_blacklist_filename }}
+
+; Allows exclusion of large files from being cached. By default all files
+; are cached.
+{% if wtd_php_opcache_max_file_size is defined %}
+opcache.max_file_size={{ wtd_php_opcache_max_file_size }}
+{% else %}
+;opcache.max_file_size=0
+{% endif %}
+
+; Check the cache checksum each N requests.
+; The default value of "0" means that the checks are disabled.
+{% if wtd_php_opcache_consistency_checks is defined %}
+opcache.consistency_checks={{ wtd_php_opcache_consistency_checks }}
+{% else %}
+;opcache.consistency_checks=0
+{% endif %}
+
+; How long to wait (in seconds) for a scheduled restart to begin if the cache
+; is not being accessed.
+{% if wtd_php_opcache_force_restart_timeout is defined %}
+opcache.force_restart_timeout={{ wtd_php_opcache_force_restart_timeout }}
+{% else %}
+;opcache.force_restart_timeout=180
+{% endif %}
+
+; OPcache error_log file name. Empty string assumes "stderr".
+{% if wtd_php_opcache_error_log is defined %}
+opcache.error_log={{ wtd_php_opcache_error_log }}
+{% else %}
+;opcache.error_log=
+{% endif %}
+
+; All OPcache errors go to the Web server log.
+; By default, only fatal errors (level 0) or errors (level 1) are logged.
+; You can also enable warnings (level 2), info messages (level 3) or
+; debug messages (level 4).
+{% if wtd_php_opcache_verbosity_level is defined %}
+opcache.log_verbosity_level={{ wtd_php_opcache_verbosity_level }}
+{% else %}
+;opcache.log_verbosity_level=1
+{% endif %}
+
+; Preferred Shared Memory back-end. Leave empty and let the system decide.
+{% if wtd_php_opcache_preferred_memory_model is defined %}
+opcache.preferred_memory_model={{ wtd_php_opcache_preferred_memory_model }}
+{% else %}
+;opcache.preferred_memory_model=
+{% endif %}
+
+; Protect the shared memory from unexpected writing during script execution.
+; Useful for internal debugging only.
+{% if wtd_php_opcache_protect_memory is defined %}
+opcache.protect_memory={{ wtd_php_opcache_protect_memory }}
+{% else %}
+;opcache.protect_memory=0
+{% endif %}
+
+; Allows calling OPcache API functions only from PHP scripts which path is
+; started from specified string. The default "" means no restriction
+{% if wtd_php_opcache_restrict_api is defined %}
+opcache.restrict_api={{ wtd_php_opcache_restrict_api }}
+{% else %}
+;opcache.restrict_api=
+{% endif %}
+
+; Mapping base of shared memory segments (for Windows only). All the PHP
+; processes have to map shared memory into the same address space. This
+; directive allows to manually fix the "Unable to reattach to base address"
+; errors.
+{% if wtd_php_opcache_mmap_base is defined %}
+opcache.mmap_base={{ wtd_php_opcache_mmap_base }}
+{% else %}
+;opcache.mmap_base=
+{% endif %}

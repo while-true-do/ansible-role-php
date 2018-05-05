@@ -5,3 +5,4 @@
   service:
     name: "{{ wtd_php_fpm_service }}"
     state: restarted
+  when: wtd_php_fpm_enable

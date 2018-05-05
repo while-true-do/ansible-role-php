@@ -19,6 +19,16 @@
     name: "{{ wtd_php_packages }}"
     state: present
 
+- name: Configure /etc/php.d/opcache.ini
+  template:
+    src: opcache.ini.j2
+    dest: /etc/php.d/opcache.ini
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart PHP-FPM
+
 - name: Configure PHP-FPM
   include_tasks: php-fpm.yml
-  when: wtd_php_fpm_enable == true
+  when: wtd_php_fpm_enable

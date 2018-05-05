@@ -14,3 +14,10 @@ wtd_php_fpm_env_temp: "/tmp"
 wtd_php_fpm_service: "php-fpm"
 
 wtd_php_repository: "default"
+
+wtd_php_opcache_enable: 1
+wtd_php_opcache_memory_consumption: 128
+wtd_php_opcache_interned_strings_buffer: 8
+wtd_php_opcache_max_accelerated_files: 4000
+wtd_php_opcache_fast_shutdown: 1
+wtd_php_opcache_blacklist_filename: "/etc/php.d/opcache*.blacklist"
