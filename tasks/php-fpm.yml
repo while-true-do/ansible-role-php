@@ -23,6 +23,7 @@
     owner: root
     group: root
     mode: 0644
+    validate: "php-fpm --fpm-config %s -t"
   notify:
     - Restart PHP-FPM
 
