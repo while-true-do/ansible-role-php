@@ -1,8 +1,0 @@
----
-# vars/CentOS-default.yml
-
-wtd_php_packages:
-  - php
-
-wtd_php_fpm_packages:
-  - php-fpm

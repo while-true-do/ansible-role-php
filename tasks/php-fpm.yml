@@ -1,6 +1,16 @@
 ---
 # tasks/php-fpm.yml
 
+- name: Define PHP-FPM packages default repository
+  set_fact:
+    wtd_php_fpm_packages: "{{ __wtd_php_fpm_packages | list }}"
+  when: wtd_php_fpm_packages is not defined and wtd_php_repository == "default"
+
+- name: Define PHP-FPM packages webtatic repository
+  set_fact:
+    wtd_php_fpm_packages: "{{ __wtd_php_fpm_packages_webtatic | list }}"
+  when: wtd_php_fpm_packages is not defined and wtd_php_repository == "webtatic"
+
 - name: Install PHP-FPM
   package:
     name: "{{ wtd_php_fpm_packages }}"

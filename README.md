@@ -42,7 +42,7 @@ ansible-galaxy install -r requirements.yml
 ## Role Variables
 
 ```yaml
-# defaults/main.yml for php
+# defaults/main.yml
 
 wtd_php_fpm_enable: false
 
@@ -54,6 +54,7 @@ wtd_php_fpm_env_path: "/usr/local/bin:/usr/bin:/bin"
 wtd_php_fpm_env_tmp: "/tmp"
 wtd_php_fpm_env_tmpdir: "/tmp"
 wtd_php_fpm_env_temp: "/tmp"
+wtd_php_fpm_service: "php-fpm"
 
 wtd_php_repository: "default"
 ```
@@ -61,27 +62,17 @@ wtd_php_repository: "default"
 ```yaml
 # vars/CentOS.yml
 
-wtd_php_fpm_service: "php-fpm"
-```
-
-```yaml
-# vars/CentOS-default.yml
-
-wtd_php_packages:
+__wtd_php_packages:
   - php
 
-wtd_php_fpm_packages:
+__wtd_php_fpm_packages:
   - php-fpm
-```
 
-```yaml
-# vars/CentOS-webtatic.yml
-
-wtd_php_packages:
+__wtd_php_packages_webtatic:
   - php71w-common
   - php71w-cli
 
-wtd_php_fpm_packages:
+__wtd_php_fpm_packages_webtatic:
   - php71w-fpm
 ```
 

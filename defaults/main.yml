@@ -11,5 +11,6 @@ wtd_php_fpm_env_path: "/usr/local/bin:/usr/bin:/bin"
 wtd_php_fpm_env_tmp: "/tmp"
 wtd_php_fpm_env_tmpdir: "/tmp"
 wtd_php_fpm_env_temp: "/tmp"
+wtd_php_fpm_service: "php-fpm"
 
 wtd_php_repository: "default"
