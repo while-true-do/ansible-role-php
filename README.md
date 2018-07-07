@@ -9,16 +9,16 @@ PHP is needed for a lot of web-based applications, e.g. Nextcloud, WordPress.
 
 ## Installation
 
-Install from [Ansible Galaxy](https://galaxy.ansible.com/while-true-do/php)
+Install from [Ansible Galaxy](https://galaxy.ansible.com/while_true_do/php)
 
 ```
-ansible-galaxy install while-true-do.php
+ansible-galaxy install while_true_do.php
 ```
 
 Install from [Github](https://github.com/while-true-do/ansible-role-php)
 
 ```
-git clone https://github.com/while-true-do/ansible-role-php.git while-true-do.php
+git clone https://github.com/while-true-do/ansible-role-php.git while_true_do.php
 ```
 
 ## Requirements
@@ -34,7 +34,7 @@ Used Modules:
 
 ## Dependencies
 
-This role depends on [while-true-do.repo-webtatic](https://galaxy.ansible.com/while-true-do/repo-webtatic). You have to install the role:
+This role depends on [while-true-do.repo-webtatic](https://galaxy.ansible.com/while_true_do/repo-webtatic). You have to install the role:
 ```
 ansible-galaxy install -r requirements.yml
 ```
@@ -83,7 +83,7 @@ Simple Example:
 ```yaml
 - hosts: servers 
   roles:
-    - { role: while-true-do.php }
+    - { role: while_true_do.php }
 ```
 
 Advanced Example:
@@ -91,7 +91,7 @@ Advanced Example:
 ```yaml
 - hosts: servers 
   roles:
-    - { role: while-true-do.php, wtd_php_fpm_enable: true, wtd_php_repository: "webtatic" }
+    - { role: while_true_do.php, wtd_php_fpm_enable: true, wtd_php_repository: "webtatic" }
 ```
 
 ## Testing
