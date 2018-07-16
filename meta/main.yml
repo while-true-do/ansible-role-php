@@ -1,6 +1,6 @@
 dependencies:
-  - name: while_true_do.repo-webtatic
-    src: while_true_do.repo-webtatic
+  - name: while_true_do.repo_webtatic
+    src: while_true_do.repo_webtatic
     when: wtd_php_repository == "webtatic"
 
 galaxy_info:

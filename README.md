@@ -34,7 +34,7 @@ Used Modules:
 
 ## Dependencies
 
-This role depends on [while-true-do.repo-webtatic](https://galaxy.ansible.com/while_true_do/repo-webtatic). You have to install the role:
+This role depends on [while_true_do.repo_webtatic](https://galaxy.ansible.com/while_true_do/repo_webtatic). You have to install the role:
 ```
 ansible-galaxy install -r requirements.yml
 ```
