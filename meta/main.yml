@@ -4,6 +4,7 @@ dependencies:
     when: wtd_php_repository == "webtatic"
 
 galaxy_info:
+  role_name: php
   author: while-true-do.org
   description: A role that installs PHP on the target system.
   company: while-true-do.org
